@@ -2,6 +2,7 @@ const crypto = require('crypto');
 
 function aesEncrypt(data, key) {
     const cipher = crypto.createCipher('aes192', key);
+    // crypto.createCipheriv(algorithm, key, iv)
     var crypted = cipher.update(data, 'utf8', 'hex');
     crypted += cipher.final('hex');
     return crypted;
@@ -22,3 +23,5 @@ var decrypted = aesDecrypt(encrypted, key);
 console.log('Plain text: ' + data);
 console.log('Encrypted text: ' + encrypted);
 console.log('Decrypted text: ' + decrypted);
+
+
